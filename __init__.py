@@ -52,12 +52,12 @@ class SoundcloudSkill(CommonPlaySkill):
 
     def CPS_match_query_phrase(self, phrase):
         # Look for regex matches starting from the most specific to the least
-
-        # Play <data> on youtube
-        match = re.search(self.translate_regex('on_youtube'), phrase)
+    LOG.debug(phrase)
+        # Play <data> on soundcloud
+        match = re.search(self.translate_regex('on_soundcloud'), phrase)
         if match:
-            data = re.sub(self.translate_regex('on_youtube'), '', phrase)
-            LOG.debug('CPS Match (on_youtube): ' + data)
+            data = re.sub(self.translate_regex('on_soundcloud'), '', phrase)
+            LOG.debug('CPS Match (on_soundcloud): ' + data)
             return phrase, CPSMatchLevel.EXACT, data
 
         return phrase, CPSMatchLevel.GENERIC, phrase
