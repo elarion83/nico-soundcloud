@@ -64,23 +64,23 @@ class SoundcloudSkill(CommonPlaySkill):
 
     def CPS_start(self, phrase, data):
         LOG.debug('CPS Start: ' + data)
-        self.search_youtube(data)
+        self.search_soundcloud(data)
 
     # Attempt to find the first result matching the query string
     
-    def search_youtube(self, search_term):
+    def search_soundcloud(self, search_term):
      LOG.debug(search_term)
 
         tracklist = []
         self.vid_url = 'https://soundcloud.com/thoms-12/ebrius'
         self.stream_url = self.get_stream_url(self.vid_url)
-        LOG.debug('Found stream URL: ' + self.vid_url)
+        LOG.debug('Found stream URL: on souncdloud')
         LOG.debug('Media title: ' + 'I will enjoy you my bro')
 
         tracklist.append(self.stream_url)
         self.mediaplayer.add_list(tracklist)
         self.audio_state = 'playing'
-        self.speak_dialog('now.playing', {'content': 'some' + search_term} )
+        self.speak_dialog('now.playing', {'content': 'some soundcloud music'} )
         wait_while_speaking()
         self.mediaplayer.play()
 
